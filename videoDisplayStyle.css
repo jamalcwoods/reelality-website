@@ -1,14 +1,18 @@
 #videoFileDisplay {
-    width: 1080px;
-    height: 720px;
+    width: 80vw;
+    height: 70vh;
 }
 
 #videoDisplay {
     margin: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #videoTitle {
     color: white;
+    text-align: center;
 }
 
 #discussionPanel {
@@ -22,6 +26,7 @@
 
 #descriptionPanel {
     margin-bottom: 5%;
+    text-align: center;
 }
 
 #discussionPanel p {
@@ -48,7 +53,12 @@
 
 @media (max-width: 720px) {
     #videoFileDisplay {
-        width: 720px;
-        height: 480px;
+        width: 80vw;
+        height: 50vh;
     }
+
+    #videoDisplay {
+        margin: 6vh;
+    }
+
 }
