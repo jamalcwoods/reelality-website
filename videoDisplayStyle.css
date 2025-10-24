@@ -1,0 +1,54 @@
+#videoFileDisplay {
+    width: 1080px;
+    height: 720px;
+}
+
+#videoDisplay {
+    margin: 5%;
+}
+
+#videoTitle {
+    color: white;
+}
+
+#discussionPanel {
+    padding: 1%;
+    border-radius: 5%;
+    background-color: rgb(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#descriptionPanel {
+    margin-bottom: 5%;
+}
+
+#discussionPanel p {
+    color: white;
+    text-align: center;
+}
+
+#discussionPanel h2 {
+    color: white;
+    text-align: center;
+}
+
+#discussionPanel h3 {
+    color: white;
+    text-align: center;
+}
+
+#discussionPanel h2 {
+    text-align: center;
+    background-color: black;
+    border-radius: 15px;
+    padding: 1%;
+}
+
+@media (max-width: 720px) {
+    #videoFileDisplay {
+        width: 720px;
+        height: 480px;
+    }
+}
