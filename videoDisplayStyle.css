@@ -51,14 +51,128 @@
     padding: 1%;
 }
 
-@media (max-width: 720px) {
+/* Tablets */
+@media (max-width: 1024px) {
     #videoFileDisplay {
-        width: 80vw;
-        height: 50vh;
+        width: 85vw;
+        height: 60vh;
     }
 
     #videoDisplay {
-        margin: 6vh;
+        margin: 4%;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    #videoFileDisplay {
+        width: 90vw;
+        height: 45vh;
     }
 
+    #videoDisplay {
+        margin: 5vh;
+        padding: 0 1rem;
+    }
+
+    #videoTitle {
+        font-size: 18px;
+        margin-bottom: 1rem;
+    }
+
+    #descriptionPanel {
+        font-size: 14px;
+        margin-bottom: 3%;
+        padding: 0 1rem;
+    }
+
+    #discussionPanel {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    #discussionPanel p {
+        font-size: 12px;
+    }
+
+    #discussionPanel h2 {
+        font-size: 16px;
+    }
+
+    #discussionPanel h3 {
+        font-size: 14px;
+    }
+
+    #discussionPanel input {
+        font-size: 12px;
+        padding: 0.5rem;
+    }
+
+    .discussion_entry {
+        padding: 0.5rem;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    #videoFileDisplay {
+        width: 95vw;
+        height: 40vh;
+    }
+
+    #videoDisplay {
+        margin: 4vh 0;
+    }
+
+    #videoTitle {
+        font-size: 16px;
+        padding: 0 1rem;
+    }
+
+    #descriptionPanel {
+        font-size: 12px;
+        padding: 1rem;
+    }
+
+    #discussionPanel {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    #discussionPanel p {
+        font-size: 11px;
+    }
+
+    #discussionPanel h2 {
+        font-size: 14px;
+        padding: 0.5%;
+    }
+
+    #discussionPanel h3 {
+        font-size: 12px;
+    }
+
+    #discussionPanel input {
+        font-size: 11px;
+    }
+}
+
+/* Extra small mobile */
+@media (max-width: 360px) {
+    #videoFileDisplay {
+        width: 100vw;
+        height: 35vh;
+    }
+
+    #videoTitle {
+        font-size: 14px;
+    }
+
+    #discussionPanel p {
+        font-size: 10px;
+    }
+
+    #discussionPanel h3 {
+        font-size: 11px;
+    }
 }

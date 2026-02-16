@@ -24,7 +24,8 @@ body {
     width: 60%;
     margin-bottom: 2.5%;
     padding: 2%;
-    border-radius: 20px;
+    border-radius: 200px;
+    border-style: none;
 }
 
 #first_ep_prompt {
@@ -158,69 +159,217 @@ body {
     display: none;
     background-color: rgb(128,128,128);
     border-radius: 10px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
     width: 30%;
     justify-self: right;
     justify-content: space-between;
     flex-direction: column;
     text-align: center;
+    position: absolute;
+    top: 5vh;
+    right: 0;
 }
 
-@media (max-width: 720px) {
+/* Tablets and small devices */
+@media (max-width: 1024px) {
+    #content_section {
+        width: 90%;
+    }
+    
+    #title_image {
+        width: 75%;
+    }
+    
+    .episode_widget {
+        width: 45%;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
     h2 {
-        text-align:  center;
-        font-size: 16px;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
     }
 
     .section_title {
-        font-size: 26px;
-    }
-
-    .episode_widget p {
-        font-size: 8px;
-        text-align: center;
+        font-size: 28px;
     }
 
     .episode_widget {
+        width: 100%;
+        margin-bottom: 3%;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    #recent_spotlight_episode .episode_description {
+    .episode_widget p {
         font-size: 12px;
         text-align: center;
-        margin-left: 10%;
-        margin-right: 10%;
+    }
+
+    .episode_thumbnail {
+        width: 80%;
+    }
+
+    #recent_spotlight_contiainer {
+        flex-direction: column;
+        gap: 2rem;
     }
 
     #recent_spotlight_episode {
-       display: flex;
-       flex-direction: column;
-       align-items: center; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    #recent_spotlight_episode .episode_thumbnail {
+        width: 90%;
+    }
+
+    #recent_spotlight_episode .episode_description {
+        font-size: 14px;
+        text-align: center;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    #recent_spotlight_discussion {
+        width: 100%;
+        padding: 2%;
     }
 
     #recent_spotlight_discussion p {
         color: white;
         text-align: center;
-        font-size: 8px;
+        font-size: 12px;
     }
 
     #recent_spotlight_discussion h2 {
         color: white;
         text-align: center;
-        font-size: 14px;
+        font-size: 16px;
     }
 
     #recent_spotlight_discussion h3 {
         color: white;
         text-align: center;
-        font-size: 18px;
+        font-size: 14px;
     }
 
     #recent_spotlight_discussion input {
-        font-size: 8px;;
+        font-size: 12px;
+        padding: 0.5rem;
     }
-    
+
+    #content_section {
+        width: 95%;
+    }
+
+    #header_section {
+        margin-top: 8vh;
+    }
+
+    #title_image {
+        width: 85%;
+        margin-bottom: 5%;
+        padding: 3%;
+    }
+
+    #first_ep_prompt {
+        padding: 3%;
+        font-size: 14px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    h2 {
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    .section_title {
+        font-size: 20px;
+        margin-bottom: 1rem;
+    }
+
+    .episode_widget {
+        margin-bottom: 2%;
+    }
+
+    .episode_widget p {
+        font-size: 10px;
+    }
+
+    .episode_thumbnail {
+        width: 100%;
+    }
+
+    #recent_spotlight_episode .episode_thumbnail {
+        width: 100%;
+    }
+
+    #recent_spotlight_episode .episode_description {
+        font-size: 12px;
+    }
+
+    #recent_spotlight_discussion p {
+        font-size: 10px;
+    }
+
+    #recent_spotlight_discussion h3 {
+        font-size: 12px;
+    }
+
+    #title_image {
+        width: 100%;
+    }
+
+    #first_ep_prompt {
+        padding: 2%;
+        font-size: 12px;
+    }
+
+    .content_container {
+        padding-bottom: 3%;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 360px) {
+    h2 {
+        font-size: 12px;
+    }
+
+    p {
+        font-size: 11px;
+    }
+
+    .section_title {
+        font-size: 18px;
+    }
+
+    .episode_widget p {
+        font-size: 9px;
+    }
+
+    #recent_spotlight_discussion p {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 720px) {
     #hamburger_icon {
         display: flex;
         border-style: none;
