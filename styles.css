@@ -1,0 +1,422 @@
+:root {
+  --bg: #040811;
+  --panel: #07131d;
+  --line: #16364a;
+  --text: #f7f2e7;
+  --muted: #d9d0b5;
+  --accent: #4fc8ff;
+  --accent-deep: #178fca;
+  --accent-soft: rgba(79, 200, 255, 0.14);
+  --cream: #f4e3b5;
+  --gold: #f7c63f;
+  --gold-deep: #e79a13;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #13364b 0%, #07111b 45%, #03070d 100%);
+  color: var(--text);
+  font-family: "Montserrat", sans-serif;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.page-shell {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(180deg, #07131d 0%, #040811 100%);
+  border: none;
+  box-shadow: 0 25px 70px rgba(2, 12, 24, 0.65);
+}
+
+.topbar {
+  min-height: 82px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 0 22px;
+  background: linear-gradient(90deg, #07131d 0%, #081723 100%);
+}
+
+.brand {
+  font-size: 48px;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  line-height: 1;
+  font-family: "Barlow Condensed", sans-serif;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+.dot {
+  color: var(--gold);
+}
+
+.tv {
+  margin-left: 6px;
+  color: var(--gold);
+  font-size: 21px;
+  vertical-align: super;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.main-nav a {
+  color: var(--text);
+  text-decoration: none;
+  position: relative;
+  padding: 4px 0;
+}
+
+.main-nav a.active,
+.main-nav a:hover {
+  color: var(--accent);
+}
+
+.main-nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -18px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.cta-top {
+  background: var(--gold);
+  color: #1c1c1c;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.07em;
+  padding: 13px 18px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.hero {
+  position: relative;
+  min-height: 560px;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(3, 8, 15, 0.82) 0%, rgba(3, 8, 15, 0.55) 45%, rgba(79, 200, 255, 0.16) 100%),
+    url("assets/placeholder.png") center / cover no-repeat;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 560px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  padding: 28px 20px 42px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(64px, 9vw, 140px);
+  line-height: 0.95;
+  text-transform: lowercase;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+
+.tv-large {
+  color: var(--gold);
+  font-size: 0.42em;
+  vertical-align: super;
+}
+
+.tagline {
+  margin: 12px 0 22px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--cream);
+  font-size: clamp(20px, 2.1vw, 30px);
+  line-height: 1.15;
+  text-transform: uppercase;
+  text-shadow: 0 0 16px rgba(79, 200, 255, 0.16);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  padding: 13px 20px;
+  border-radius: 3px;
+  min-height: 48px;
+  font-size: 14px;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
+  color: #1b1400;
+  border: 1px solid var(--gold-deep);
+}
+
+.btn-outline {
+  color: var(--cream);
+  border: 1px solid var(--accent);
+  background: var(--accent-soft);
+}
+
+.issues {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 30px;
+  padding: 28px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(7, 19, 29, 0.95) 0%, rgba(4, 8, 15, 0.95) 100%);
+}
+
+.issues h2 {
+  margin: 0 0 14px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+}
+
+.issues-copy p {
+  margin: 0 0 20px;
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: 16px;
+  max-width: 34ch;
+}
+
+.small {
+  min-height: 42px;
+  padding: 10px 16px;
+}
+
+.video-card {
+  position: relative;
+  border: 1px solid var(--line);
+  background: #0c1822;
+}
+
+.video-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 104px;
+  height: 104px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--gold) 100%);
+  color: #07131d;
+  display: grid;
+  place-items: center;
+  font-size: 46px;
+  text-indent: 6px;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+}
+
+.episodes {
+  padding: 24px 28px 30px;
+}
+
+.episodes-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+
+.episodes h3 {
+  margin: 0;
+  font-size: clamp(38px, 4.3vw, 56px);
+  font-family: "Barlow Condensed", sans-serif;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.episodes-head a {
+  text-decoration: none;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.episode-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.episode-card {
+  background: #0b1720;
+  border: 1px solid var(--line);
+  position: relative;
+}
+
+.episode-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.episode-meta {
+  padding: 10px 10px 14px;
+}
+
+.episode-meta span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #d6d6d6;
+  margin-bottom: 4px;
+}
+
+.episode-meta strong {
+  font-size: 28px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  line-height: 0.95;
+  color: #f6f6f6;
+  text-transform: lowercase;
+}
+
+.episode-card time {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.72);
+  border: 1px solid #5a5a5a;
+  font-size: 10px;
+  padding: 2px 5px;
+}
+
+.ticker {
+  border-top: 1px solid var(--line);
+  background: linear-gradient(90deg, #0d2230 0%, #07131d 100%);
+  color: var(--gold);
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ticker p {
+  margin: 0;
+  padding: 16px 20px;
+  font-size: clamp(24px, 2.2vw, 36px);
+  text-align: center;
+}
+
+@media (max-width: 1100px) {
+  .topbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 14px;
+  }
+
+  .main-nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 8px;
+  }
+
+  .main-nav a.active::after {
+    bottom: -8px;
+  }
+
+  .issues {
+    grid-template-columns: 1fr;
+  }
+
+  .issues-copy p {
+    max-width: none;
+  }
+
+  .episode-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 10px;
+  }
+
+  .page-shell {
+    border: none;
+  }
+
+  .hero {
+    min-height: 420px;
+  }
+
+  .hero-content {
+    min-height: 420px;
+  }
+
+  .tagline {
+    font-size: 20px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .episodes-head {
+    gap: 12px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .episode-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ticker p {
+    text-align: left;
+  }
+}

@@ -1,93 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reelality</title>
-    <link rel="stylesheet" href="baseStyle.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reelality TV - Mock Landing Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <nav id="navbar">
-        <div id="bar_selections">
-            <img class="nav_item_mobile" id="site_logo" src="images/logo_PH.png">
-            <h2 class="nav_item_full">About</h2>
-            <h2 class="nav_item_full">Team</h2>
-            <h2 class="nav_item_full">Discussions</h2>
-            <img class="nav_item_mobile" id="hamburger_icon" src="images/local/deco/hamburgerMenu.png">
-        </div>    
-        <div id="hamburger_options">
-            <h3>About</h3>
-            <h3>Team</h3>
-            <h3>Discussions</h3>
+  <div class="page-shell">
+    <header class="topbar">
+      <img width="15%" src="assets/title.png">
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="#" class="active">HOME</a>
+        <a href="#">ABOUT</a>
+        <a href="#">EPISODES</a>
+        <a href="#">TRAILERS</a>
+        <a href="#">CONTACT</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-bg" role="img" aria-label="Hero background placeholder"></div>
+      <div class="hero-content">
+        <img width="60%" src="assets/title.png">
+        <p class="tagline">AN ANIMATED SATIRICAL SERIES<br />BASED ON OUR REALITY. EXAGGERATED.</p>
+        <div class="hero-buttons">
+          <a href="#" class="btn btn-gold">WATCH TRAILER</a>
+          <a href="#" class="btn btn-outline">ABOUT THE SERIES</a>
         </div>
-    </nav>
-    
-    <div id="header_section"> 
-        <div class="hero">
-            <img id="title_image" src="images/local/animated/logo.gif"> 
-            <p class="hero-subtitle">Come out of the trance, step into Reel•’ality</p>
-        </div>
-        <button id="first_ep_prompt">Watch Episode 1</button>
-    </div>
+      </div>
+    </section>
 
-    <div id="content_section">
-        <h2 class="section_title">Episodes</h2>
-        <div class="content_container" id="episodes_container">
-            <div class="episode_widget">
-                <img class="episode_thumbnail" src="images/local/stills/foto1.png">
-                <h2>Test Episode</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce molestie nibh urna, sed laoreet sem rutrum vel. Sed elit dui, sodales vitae mauris vitae, semper.</p>
-            </div>
+    <section class="issues">
+      <div class="issues-copy">
+        <h2>REAL ISSUES.<br />UNREAL FUNNY.</h2>
+        <p>
+          Reel-'ality is a bold, fast-paced animated series that holds up a mirror to
+          today's culture, politics, and pop nonsense. No filter. No fear. Just the truth... animated.
+        </p>
+        <a href="#" class="btn btn-outline small">WATCH NOW</a>
+      </div>
+      <div class="video-card" role="img" aria-label="Video placeholder">
+        <img src="assets/Studio_Video3.png" alt="Video thumbnail placeholder" />
+        <div class="play-button" aria-hidden="true">&#9654;</div>
+      </div>
+    </section>
 
-            <div class="episode_widget">
-                <img class="episode_thumbnail" src="images/local/stills/foto2.png">
-                <h2>Test Episode</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce molestie nibh urna, sed laoreet sem rutrum vel. Sed elit dui, sodales vitae mauris vitae, semper.</p>
-            </div>
+    <section class="episodes">
+      <div class="episodes-head">
+        <h3>LATEST EPISODES</h3>
+        <a href="#">VIEW ALL EPISODES</a>
+      </div>
 
-            <div class="episode_widget">
-                <img class="episode_thumbnail" src="images/local/stills/foto3.png">
-                <h2>Test Episode</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce molestie nibh urna, sed laoreet sem rutrum vel. Sed elit dui, sodales vitae mauris vitae, semper.</p>
-            </div>
+      <div class="episode-grid">
+        <article class="episode-card">
+          <img src="assets/Studio_Video3.png" alt="Episode 1 placeholder" />
+          <div class="episode-meta">
+            <span>EPISODE 1</span>
+            <strong>Coming Soon</strong>
+          </div>
+          <time>20:01</time>
+        </article>
+      </div>
+    </section>
 
-            <div class="episode_widget">
-                <img class="episode_thumbnail" src="images/local/stills/foto1.png">
-                <h2>Test Episode</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce molestie nibh urna, sed laoreet sem rutrum vel. Sed elit dui, sodales vitae mauris vitae, semper.</p>
-            </div>
-
-            <div class="episode_widget">
-                <img class="episode_thumbnail" src="images/local/stills/foto2.png">
-                <h2>Test Episode</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce molestie nibh urna, sed laoreet sem rutrum vel. Sed elit dui, sodales vitae mauris vitae, semper.</p>
-            </div>
-
-            <div class="episode_widget">
-                <img class="episode_thumbnail" src="images/local/stills/foto3.png">
-                <h2>Test Episode</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce molestie nibh urna, sed laoreet sem rutrum vel. Sed elit dui, sodales vitae mauris vitae, semper.</p>
-            </div>
-        </div>
-        <div class="content_container" id="recent_spotlight_contiainer">
-            <div id="recent_spotlight_episode">
-                <h2 class="section_title">Latest Episode</h2>
-                <img class="episode_thumbnail" src="images/local/stills/foto3.png">
-                <h2>Test Episode</h2>
-                <p class="episode_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce molestie nibh urna, sed laoreet sem rutrum vel. Sed elit dui, sodales vitae mauris vitae, semper.</p>
-            </div>
-            <div id="recent_spotlight_discussion">
-                <h2>Discussion</h2>
-                <div class="discussion_entry">
-                    <h3>Test Name</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce molestie nibh urna, sed laoreet sem rutrum vel</p>
-                </div>
-                <input type="text" placeholder="Leave a comment..."> 
-            </div>
-        </div>
-    </div>
-    
-    
-    <script src="basescript.js"></script>
+    <footer class="ticker">
+      <p>Come out of the trance<br><br>step into Reel•’ality</p>
+    </footer>
+  </div>
 </body>
 </html>
