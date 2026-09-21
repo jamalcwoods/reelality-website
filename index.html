@@ -32,15 +32,14 @@
 
     <section class="issues">
       <div class="issues-copy">
-        <h2>REAL ISSUES.<br />UNREAL FUNNY.</h2>
+        <h2>REEL•’ALITY<br/><br/>Reality without the act.</h2>
         <p>
-          Reel-'ality is a bold, fast-paced animated series that holds up a mirror to
-          today's culture, politics, and pop nonsense. No filter. No fear. Just the truth... animated.
+          REEL•’ality is a satirical animated series that keeps it real. Using familiar moments and worn narratives, it pushes them until the script flips—and the spell breaks
         </p>
         <a href="#" class="btn btn-outline small">WATCH NOW</a>
       </div>
       <div class="video-card">
-        <video id="sizzle-video" src="https://www.dropbox.com/scl/fi/tcdbjd2qqbrb1xr73pd0t?r=ACwZvajVfdcw24GIMl81Ft0__fEQ_cl9evo_DE1C5-DEwjjGocLQcjmdCFob4ixeDeNXRQHRfiWILcS6dZU0Wc2uteEtpDJisuKIImTKFC9EtXj--iKhpTvHBeq9yPBQ6fED3OfYOhVGmZNVvwsb7HU8&e=1&dl=1" autoplay loop playsinline></video>
+        <video id="sizzle-video" src="https://www.dropbox.com/scl/fi/9k37ijzanw2i3vqxe81wt/Reel-ality_Sizzle_v16b_8.mp4?rlkey=m62oq0a6e9441x1wuh4j0638j&raw=1" autoplay loop playsinline></video>
         <button class="mute-button" id="mute-button" type="button" aria-pressed="false">Mute video</button>
       </div>
     </section>
@@ -94,10 +93,24 @@
     const video = document.querySelector("#sizzle-video");
     const muteButton = document.querySelector("#mute-button");
 
-    muteButton.addEventListener("click", () => {
-      video.muted = !video.muted;
+    function syncMuteButton() {
       muteButton.textContent = video.muted ? "Unmute video" : "Mute video";
       muteButton.setAttribute("aria-pressed", String(video.muted));
+    }
+
+    // browsers block unmuted autoplay without prior user interaction, so mute and retry as a fallback
+    video.play().catch(() => {
+      video.muted = true;
+      syncMuteButton();
+      video.play();
+    });
+
+    muteButton.addEventListener("click", () => {
+      video.muted = !video.muted;
+      video.volume = 1;
+      // some browsers keep audio suspended after an autoplay mute-fallback until play() is re-called on a user gesture
+      video.play();
+      syncMuteButton();
     });
   </script>
 </body>
