@@ -17,7 +17,7 @@
         <a href="#" class="active">HOME</a>
         <a href="#">ABOUT</a>
         <a href="#">EPISODES</a>
-        <a href="#">TRAILERS</a>
+        <a href="#">FORUMS</a>
         <a href="#">CONTACT</a>
       </nav>
     </header>
@@ -26,11 +26,7 @@
       <div class="hero-bg" role="img" aria-label="Hero background placeholder"></div>
       <div class="hero-content">
         <img width="60%" src="assets/title.png">
-        <p class="tagline">AN ANIMATED SATIRICAL SERIES<br />BASED ON OUR REALITY. EXAGGERATED.</p>
-        <div class="hero-buttons">
-          <a href="#" class="btn btn-gold">WATCH TRAILER</a>
-          <a href="#" class="btn btn-outline">ABOUT THE SERIES</a>
-        </div>
+        <p class="tagline">COME OUT OF THE TRANCE<br>STEP INTO REEL•’ALITY</p>
       </div>
     </section>
 
@@ -43,9 +39,9 @@
         </p>
         <a href="#" class="btn btn-outline small">WATCH NOW</a>
       </div>
-      <div class="video-card" role="img" aria-label="Video placeholder">
-        <img src="assets/Studio_Video3.png" alt="Video thumbnail placeholder" />
-        <div class="play-button" aria-hidden="true">&#9654;</div>
+      <div class="video-card">
+        <video id="sizzle-video" src="https://www.dropbox.com/scl/fi/tcdbjd2qqbrb1xr73pd0t?r=ACwZvajVfdcw24GIMl81Ft0__fEQ_cl9evo_DE1C5-DEwjjGocLQcjmdCFob4ixeDeNXRQHRfiWILcS6dZU0Wc2uteEtpDJisuKIImTKFC9EtXj--iKhpTvHBeq9yPBQ6fED3OfYOhVGmZNVvwsb7HU8&e=1&dl=1" autoplay loop playsinline></video>
+        <button class="mute-button" id="mute-button" type="button" aria-pressed="false">Mute video</button>
       </div>
     </section>
 
@@ -64,12 +60,45 @@
           </div>
           <time>20:01</time>
         </article>
+        <article class="episode-card">
+          <img src="assets/Studio_Video3.png" alt="Episode 1 placeholder" />
+          <div class="episode-meta">
+            <span>EPISODE 2</span>
+            <strong>Coming Soon</strong>
+          </div>
+          <time>20:01</time>
+        </article>
+        <article class="episode-card">
+          <img src="assets/Studio_Video3.png" alt="Episode 1 placeholder" />
+          <div class="episode-meta">
+            <span>EPISODE 3</span>
+            <strong>Coming Soon</strong>
+          </div>
+          <time>20:01</time>
+        </article>
+        <article class="episode-card">
+          <img src="assets/Studio_Video3.png" alt="Episode 1 placeholder" />
+          <div class="episode-meta">
+            <span>EPISODE 4</span>
+            <strong>Coming Soon</strong>
+          </div>
+          <time>20:01</time>
+        </article>
       </div>
     </section>
 
     <footer class="ticker">
-      <p>Come out of the trance<br><br>step into Reel•’ality</p>
     </footer>
   </div>
+  <script>
+    const video = document.querySelector("#sizzle-video");
+    const muteButton = document.querySelector("#mute-button");
+
+    muteButton.addEventListener("click", () => {
+      video.muted = !video.muted;
+      muteButton.textContent = video.muted ? "Unmute video" : "Mute video";
+      muteButton.setAttribute("aria-pressed", String(video.muted));
+    });
+  </script>
 </body>
 </html>
