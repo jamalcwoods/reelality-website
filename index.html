@@ -36,11 +36,16 @@
         <p>
           REEL•’ality is a satirical animated series that keeps it real. Using familiar moments and worn narratives, it pushes them until the script flips—and the spell breaks
         </p>
-        <a href="#" class="btn btn-outline small">WATCH NOW</a>
       </div>
       <div class="video-card">
-        <video id="sizzle-video" src="https://www.dropbox.com/scl/fi/9k37ijzanw2i3vqxe81wt/Reel-ality_Sizzle_v16b_8.mp4?rlkey=m62oq0a6e9441x1wuh4j0638j&raw=1" autoplay loop playsinline></video>
-        <button class="mute-button" id="mute-button" type="button" aria-pressed="false">Mute video</button>
+        <div class="video-frame">
+          <video id="sizzle-video" src="https://www.dropbox.com/scl/fi/9k37ijzanw2i3vqxe81wt/Reel-ality_Sizzle_v16b_8.mp4?rlkey=m62oq0a6e9441x1wuh4j0638j&raw=1" loop playsinline muted></video>
+          <button class="watch-trailer-button" id="watch-trailer-button" type="button">Watch Trailer</button>
+        </div>
+        <div class="video-controls">
+          <button class="mute-button" id="mute-button" type="button" aria-pressed="true" hidden>Unmute video</button>
+          <button class="fullscreen-button" id="fullscreen-button" type="button" hidden>Fullscreen</button>
+        </div>
       </div>
     </section>
 
@@ -91,26 +96,37 @@
   </div>
   <script>
     const video = document.querySelector("#sizzle-video");
+    const watchTrailerButton = document.querySelector("#watch-trailer-button");
     const muteButton = document.querySelector("#mute-button");
+    const fullscreenButton = document.querySelector("#fullscreen-button");
 
     function syncMuteButton() {
       muteButton.textContent = video.muted ? "Unmute video" : "Mute video";
       muteButton.setAttribute("aria-pressed", String(video.muted));
     }
 
-    // browsers block unmuted autoplay without prior user interaction, so mute and retry as a fallback
-    video.play().catch(() => {
-      video.muted = true;
-      syncMuteButton();
+    watchTrailerButton.addEventListener("click", () => {
+      video.muted = false;
+      video.volume = 1;
       video.play();
+      watchTrailerButton.hidden = true;
+      muteButton.hidden = false;
+      fullscreenButton.hidden = false;
+      syncMuteButton();
     });
 
     muteButton.addEventListener("click", () => {
       video.muted = !video.muted;
       video.volume = 1;
-      // some browsers keep audio suspended after an autoplay mute-fallback until play() is re-called on a user gesture
       video.play();
       syncMuteButton();
+    });
+
+    fullscreenButton.addEventListener("click", () => {
+      const request = video.requestFullscreen || video.webkitRequestFullscreen || video.webkitEnterFullscreen;
+      if (request) {
+        request.call(video);
+      }
     });
   </script>
 </body>
