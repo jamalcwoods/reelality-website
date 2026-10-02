@@ -15,10 +15,10 @@
       <img width="15%" src="assets/title.png">
       <nav class="main-nav" aria-label="Primary Navigation">
         <a href="#" class="active">HOME</a>
-        <a href="#">ABOUT</a>
-        <a href="#">EPISODES</a>
-        <a href="#">FORUMS</a>
-        <a href="#">CONTACT</a>
+        <a href="#" data-coming-soon="About">ABOUT</a>
+        <a href="#" data-coming-soon="Episodes">EPISODES</a>
+        <a href="#" data-coming-soon="Forums">FORUMS</a>
+        <a href="#" data-coming-soon="Contact">CONTACT</a>
       </nav>
     </header>
 
@@ -34,16 +34,21 @@
       <div class="issues-copy">
         <h2>REEL•’ality<br/><br/>Reality without the act.</h2>
         <p>
-          REEL•’ality is a satirical animated series that keeps it real. Using familiar moments and worn narratives, it pushes them until the script flips—and the spell breaks
+          Reel•'ality is a satirical animated series that keeps it real. Using familiar moments and worn narratives, it pushes them until the script flips—and the spell breaks.
+          <br><br>
+          But Reel•'ality doesn’t just go for laughs or point fingers at dysfunctional behavior—it pulls it apart to expose what’s really underneath. By flipping familiar media and cultural narratives, the series interrupts the programming, challenges what we’ve come to accept as normal, and gives voice to what has long lived unspoken in the subconscious.
         </p>
       </div>
       <div class="video-card">
         <div class="video-frame">
-          <video id="sizzle-video" src="https://www.dropbox.com/scl/fi/9k37ijzanw2i3vqxe81wt/Reel-ality_Sizzle_v16b_8.mp4?rlkey=m62oq0a6e9441x1wuh4j0638j&raw=1" loop playsinline muted></video>
+          <video id="sizzle-video" loop playsinline muted></video>
+          <img class="pause-indicator" id="pause-indicator" src="assets/pause-button.png" alt="" aria-hidden="true" hidden />
           <button class="watch-trailer-button" id="watch-trailer-button" type="button">Watch Trailer</button>
         </div>
         <div class="video-controls">
-          <button class="mute-button" id="mute-button" type="button" aria-pressed="true" hidden>Unmute video</button>
+          <button class="mute-button" id="mute-button" type="button" aria-label="Unmute video" aria-pressed="true" title="Unmute video" hidden>
+            <img id="mute-icon" src="assets/headphones_unmute.png" alt="" aria-hidden="true" />
+          </button>
           <button class="fullscreen-button" id="fullscreen-button" type="button" hidden>Fullscreen</button>
         </div>
       </div>
@@ -62,6 +67,7 @@
             <span>EPISODE 1</span>
             <strong>Coming Soon</strong>
           </div>
+          <p class="episode-description">Episode details are coming soon. Check back for updates.</p>
           <time>20:01</time>
         </article>
         <article class="episode-card">
@@ -70,6 +76,7 @@
             <span>EPISODE 2</span>
             <strong>Coming Soon</strong>
           </div>
+          <p class="episode-description">Episode details are coming soon. Check back for updates.</p>
           <time>20:01</time>
         </article>
         <article class="episode-card">
@@ -78,14 +85,7 @@
             <span>EPISODE 3</span>
             <strong>Coming Soon</strong>
           </div>
-          <time>20:01</time>
-        </article>
-        <article class="episode-card">
-          <img src="assets/Studio_Video3.png" alt="Episode 1 placeholder" />
-          <div class="episode-meta">
-            <span>EPISODE 4</span>
-            <strong>Coming Soon</strong>
-          </div>
+          <p class="episode-description">Episode details are coming soon. Check back for updates.</p>
           <time>20:01</time>
         </article>
       </div>
@@ -94,18 +94,88 @@
     <footer class="ticker">
     </footer>
   </div>
+  <div class="coming-soon-overlay" id="coming-soon-overlay" hidden>
+    <section class="coming-soon-dialog" id="coming-soon-dialog" role="dialog" aria-modal="true" aria-labelledby="coming-soon-title">
+      <button class="coming-soon-close" id="coming-soon-close" type="button">Close</button>
+      <h2 id="coming-soon-title"></h2>
+      <div class="coming-soon-message" id="coming-soon-message"></div>
+    </section>
+  </div>
   <script>
     const video = document.querySelector("#sizzle-video");
     const watchTrailerButton = document.querySelector("#watch-trailer-button");
+    const pauseIndicator = document.querySelector("#pause-indicator");
     const muteButton = document.querySelector("#mute-button");
+    const muteIcon = document.querySelector("#mute-icon");
     const fullscreenButton = document.querySelector("#fullscreen-button");
+    const pageShell = document.querySelector(".page-shell");
+    const comingSoonOverlay = document.querySelector("#coming-soon-overlay");
+    const comingSoonTitle = document.querySelector("#coming-soon-title");
+    const comingSoonMessage = document.querySelector("#coming-soon-message");
+    const comingSoonClose = document.querySelector("#coming-soon-close");
+    const desktopVideoSource = "https://www.dropbox.com/scl/fi/9k37ijzanw2i3vqxe81wt/Reel-ality_Sizzle_v16b_8.mp4?rlkey=m62oq0a6e9441x1wuh4j0638j&raw=1";
+    const mobileVideoSource = "https://www.dropbox.com/scl/fi/sfcf9a4qqkfi552xq954w/Reel_ality_Sizzle_9x16_FINAL02.mp4?rlkey=glznado6ijk9b4qjx2lzzbeqz&st=sbih3959&raw=1";
+    const isHandheldViewport = window.matchMedia("(max-width: 640px) and (orientation: portrait)").matches;
+    video.src = isHandheldViewport ? mobileVideoSource : desktopVideoSource;
+    const comingSoonContent = {
+      About: [
+        "Reel•'ality is a satirical animated series that keeps it real. Using familiar moments and worn narratives, it pushes them until the script flips—and the spell breaks.",
+        "But Reel•'ality doesn’t just go for laughs or point fingers at dysfunctional behavior—it pulls it apart to expose what’s really underneath. By flipping familiar media and cultural narratives, the series interrupts the programming, challenges what we’ve come to accept as normal, and gives voice to what has long lived unspoken in the subconscious."
+      ],
+      Forums: ["This section will host discussions about the different videos."],
+      Episodes: ["This section will provide access to all episodes."],
+      Contact: ["This section is coming soon."]
+    };
+    let previouslyFocusedElement;
+    let hasStarted = false;
+    let hasPlayed = false;
+
+    function closeComingSoonDialog() {
+      if (comingSoonOverlay.hidden) return;
+      comingSoonOverlay.hidden = true;
+      pageShell.inert = false;
+      previouslyFocusedElement?.focus();
+    }
+
+    document.querySelectorAll(".main-nav a[data-coming-soon]").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        previouslyFocusedElement = link;
+        const sectionName = link.dataset.comingSoon;
+        comingSoonTitle.textContent = sectionName;
+        comingSoonMessage.replaceChildren(...comingSoonContent[sectionName].map((text) => {
+          const paragraph = document.createElement("p");
+          paragraph.textContent = text;
+          return paragraph;
+        }));
+        pageShell.inert = true;
+        comingSoonOverlay.hidden = false;
+        comingSoonClose.focus();
+      });
+    });
+
+    comingSoonClose.addEventListener("click", closeComingSoonDialog);
+    comingSoonOverlay.addEventListener("click", (event) => {
+      if (event.target === comingSoonOverlay) closeComingSoonDialog();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeComingSoonDialog();
+    });
+
+    function syncPauseIndicator() {
+      pauseIndicator.hidden = !hasPlayed || !video.paused;
+    }
 
     function syncMuteButton() {
-      muteButton.textContent = video.muted ? "Unmute video" : "Mute video";
+      const action = video.muted ? "Unmute video" : "Mute video";
+      muteIcon.src = video.muted ? "assets/headphones_unmute.png" : "assets/headphones_mute.png";
+      muteButton.setAttribute("aria-label", action);
+      muteButton.title = action;
       muteButton.setAttribute("aria-pressed", String(video.muted));
     }
 
     watchTrailerButton.addEventListener("click", () => {
+      hasStarted = true;
       video.muted = false;
       video.volume = 1;
       video.play();
@@ -113,7 +183,24 @@
       muteButton.hidden = false;
       fullscreenButton.hidden = false;
       syncMuteButton();
+      syncPauseIndicator();
     });
+
+    video.addEventListener("click", () => {
+      if (!hasStarted) return;
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+
+    video.addEventListener("play", syncPauseIndicator);
+    video.addEventListener("playing", () => {
+      hasPlayed = true;
+      syncPauseIndicator();
+    });
+    video.addEventListener("pause", syncPauseIndicator);
 
     muteButton.addEventListener("click", () => {
       video.muted = !video.muted;

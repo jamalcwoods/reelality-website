@@ -17,6 +17,7 @@
 }
 
 body {
+  position: relative;
   margin: 0;
   background: radial-gradient(circle at top, #13364b 0%, #07111b 45%, #03070d 100%);
   color: var(--text);
@@ -35,6 +36,9 @@ body {
 }
 
 .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   min-height: 82px;
   border-bottom: 1px solid var(--line);
   display: flex;
@@ -43,6 +47,71 @@ body {
   gap: 18px;
   padding: 0 22px;
   background: linear-gradient(90deg, #07131d 0%, #081723 100%);
+}
+
+.coming-soon-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(85, 85, 85, 0.72);
+}
+
+.coming-soon-overlay[hidden] {
+  display: none;
+}
+
+.coming-soon-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: min(440px, calc(100% - 32px));
+  padding: 42px 28px 28px;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  background: var(--panel);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.42);
+  text-align: center;
+}
+
+.coming-soon-dialog h2 {
+  margin: 0 0 16px;
+  color: var(--accent);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 32px;
+}
+
+.coming-soon-message {
+  display: grid;
+  gap: 12px;
+  text-align: left;
+}
+
+.coming-soon-dialog p {
+  margin: 0;
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.coming-soon-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.coming-soon-close:hover,
+.coming-soon-close:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .brand {
@@ -258,12 +327,31 @@ body {
   display: block;
 }
 
+.video-frame .pause-indicator[hidden],
+.mute-button[hidden] {
+  display: none;
+}
+
 .video-frame video {
   width: 100%;
   height: auto;
   flex-shrink: 0;
   display: block;
   background: #000;
+  cursor: pointer;
+}
+
+.video-frame .pause-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 72px;
+  height: 72px;
+  min-height: 0;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 .video-controls {
@@ -284,6 +372,22 @@ body {
   font-weight: 700;
   letter-spacing: 0.03em;
   cursor: pointer;
+}
+
+.mute-button {
+  width: 40px;
+  height: 40px;
+  padding: 4px;
+  display: grid;
+  place-items: center;
+}
+
+.mute-button img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
 }
 
 .mute-button:hover,
@@ -399,6 +503,14 @@ body {
   line-height: 0.95;
   color: #f6f6f6;
   text-transform: lowercase;
+}
+
+.episode-description {
+  margin: 0;
+  padding: 0 10px 14px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
 }
 
 .episode-card time {
