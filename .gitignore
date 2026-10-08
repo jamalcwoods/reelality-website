@@ -1,0 +1,10 @@
+# Ignore everything by default
+/*
+
+# Keep website files
+!/index.html
+!/styles.css
+!/assets/
+
+# Keep this gitignore file
+!/.gitignore
